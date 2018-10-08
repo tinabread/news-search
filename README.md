@@ -1,3 +1,6 @@
+## Live app
+Live app can be accessed here: https://tinapan-newssearch-github.glitch.me/
+
 ## Notes
 
 Bootstrapped with **create-react-app**.<br>
