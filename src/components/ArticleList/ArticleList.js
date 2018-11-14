@@ -1,3 +1,4 @@
+// component used to organise the articles into sections and display them in a flexbox
 import React from 'react';
 import './ArticleList.css';
 import Article from '../Article/Article';
