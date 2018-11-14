@@ -1,3 +1,4 @@
+// component representing articles retrieved from the API
 import React from 'react';
 import './Article.css';
 

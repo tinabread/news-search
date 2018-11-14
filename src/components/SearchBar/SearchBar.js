@@ -1,3 +1,4 @@
+// component containing the search bar
 import React from 'react';
 import './SearchBar.css';
 
@@ -43,10 +44,10 @@ class SearchBar extends React.Component {
     this.setState({ Date: event.target.value });
   }
   
-  // handleSearch(event) {
-  //   this.props.searchGuardian(this.state.term, this.state.Date, this.state.sortBy);
-  //   event.preventDefault();
-  // }
+  handleSearch(event) {
+    this.props.searchGuardian(this.state.term, this.state.Date, this.state.sortBy);
+    event.preventDefault();
+  }
   
   renderSortByOptions() {
     return Object.keys(sortByOptions).map(option => {
@@ -62,13 +63,13 @@ class SearchBar extends React.Component {
   render () {
     return (
       <div className="SearchBar">
-        {/*<div className="SearchBar-sort-options">
-          <ul>
-          {this.renderSortByOptions()}
-          </ul>
-        </div>*/}
+        {<div className="SearchBar-sort-options">
+          {/*<ul>
+          this.renderSortByOptions()
+          </ul>*/}
+        </div>}
         <div className="SearchBar-fields">
-          <input placeholder="Search articles" onChange={this.handleTermChange}/>
+          <input placeholder="Start searching!" onChange={this.handleTermChange}/>
           {/* <input placeholder="Published from" onChange={this.handleDateChange}/> */}
         </div>
         {/*<div className="SearchBar-submit" onClick={this.handleSearch}>

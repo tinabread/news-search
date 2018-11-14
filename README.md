@@ -1,6 +1,3 @@
-## Live app
-Live app can be accessed here: https://tinapan-newssearch-github.glitch.me/
-
 ## Notes
 
 Bootstrapped with **create-react-app**.<br>
@@ -26,5 +23,3 @@ The following features are included:
 ## Feature extensions
 
 The Guardian Content API offers many ways to filter a search. Some other suitable features may be including a dropdown to filter by language, or using a date picker to set a threshold to only return content published from a given date. A base implementation of the latter has been included in the `SearchBar` component.
-
-Additionally, some functionality from the base Yelp project was adapted to include the option of sorting results by *newest*, *oldest* or *relevance* (default). This functionality was developed when the 'sort by section' feature was not yet implemented, and is included in the `SearchBar` component (commented out).

@@ -1,3 +1,4 @@
+// component containing the section header
 import React from 'react';
 import './Section.css';
 import ArticleList from '../ArticleList/ArticleList';
