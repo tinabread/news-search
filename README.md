@@ -4,7 +4,7 @@ Live app can be found here: https://tinapan-newssearch-github.glitch.me/
 ## Notes
 
 Bootstrapped with **create-react-app**.<br>
-Based on a React course project `Yelp Search` by [Codecademy](https://www.codecademy.com/).
+Based on `Yelp Search` by [Codecademy](https://www.codecademy.com/).
 
 Project files are divided into four components:
 * `Article`
