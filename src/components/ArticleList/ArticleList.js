@@ -1,26 +1,20 @@
 // component used to organise the articles into sections and display them in a flexbox
-import React from 'react';
-import './ArticleList.css';
-import Article from '../Article/Article';
+import React from "react";
+import "./ArticleList.css";
+import Article from "../Article/Article";
 
-class ArticleList extends React.Component {
-  
-  renderArticles() {
-    return this.props.articles.map(article => {
-      if (article.section === this.props.section) {
-        return <Article article={article} key={article.id}/>;
+const ArticleList = props => {
+  const { articles, section } = props;
+
+  const renderArticles = () => {
+    return articles.map(article => {
+      if (article.section === section) {
+        return <Article article={article} key={article.id} />;
       }
     });
-  }
-  
-  render() {
-    return (
-      <div className="ArticleList">
-      {this.renderArticles()}
-      </div>
-    )
   };
-}
+
+  return <div className="ArticleList">{renderArticles()}</div>;
+};
 
 export default ArticleList;
-
