@@ -10,7 +10,6 @@ const searchApi = (term, location, sortBy) => {
     return response.json();
     }).then(jsonResponse => {
     if (jsonResponse.response.results) {
-      // console.log(jsonResponse.response.results);
       let articles = jsonResponse.response.results.map(article => {
          return {
            id: article.id,
@@ -30,7 +29,7 @@ const searchApi = (term, location, sortBy) => {
     });
 };
 
-// this could be implemented using an ES6 Set object, but glitch.com did not recognize the type
+// this could be implemented using an ES6 Set type
 const getUniqueSections = (articles) => {
   
   let uniqueSections = [];  

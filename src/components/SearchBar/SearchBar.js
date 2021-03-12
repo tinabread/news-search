@@ -1,83 +1,70 @@
-// component containing the search bar
-import React from 'react';
-import './SearchBar.css';
+import React, { useState } from "react";
+import "./SearchBar.css";
 
 const sortByOptions = {
-  'Newest': 'newest',
-  'Oldest': 'oldest',
-  'Relevance': 'relevance'
+  Newest: "newest",
+  Oldest: "oldest",
+  Relevance: "relevance"
 };
 
-class SearchBar extends React.Component {
-  constructor(props) {
-    super(props);  
-    
-    this.state = {
-      term: '',
-      date: '',
-      sortBy: 'relevance'
-    };
-    
-    this.handleSortByChange = this.handleSortByChange.bind(this);
-    this.handleTermChange = this.handleTermChange.bind(this);
-    this.handleDateChange = this.handleDateChange.bind(this);
-  }
-  
-  getSortByClass(sortingOption) {
-    if (this.state.sortBy == sortingOption) {
-      return 'active';
+// component containing the search bar
+const SearchBar = props => {
+  const { searchGuardian } = props;
+
+  const [searchTerm, setSearchTerm] = useState("");
+  const [date, setDate] = useState("");
+  const [sortBy, setSortBy] = useState("relevance");
+
+  const getSortByClass = sortingOption => {
+    if (sortBy == sortingOption) {
+      return "active";
     } else {
-      return '';
+      return "";
     }
-  }
-  
-  handleSortByChange(option) {
-    this.setState({ sortBy: option });
-  }
+  };
 
-  handleTermChange(event) {
-    // this.setState({ term: event.target.value });
-    this.props.searchGuardian(event.target.value, this.state.Date, this.state.sortBy);
-  }
+  const handleSortByChange = option => {
+    setSearchTerm(option);
+  };
 
-  handleDateChange(event) {
-    this.setState({ Date: event.target.value });
-  }
-  
-  handleSearch(event) {
-    this.props.searchGuardian(this.state.term, this.state.Date, this.state.sortBy);
-    event.preventDefault();
-  }
-  
-  renderSortByOptions() {
+  const handleTermChange = evt => {
+    searchGuardian(evt.target.value, date, sortBy);
+  };
+
+  const handleDateChange = evt => {
+    setDate(evt.target.value);
+  };
+
+  const handleSearch = evt => {
+    searchGuardian(searchTerm, date, sortBy);
+  };
+
+  const renderSortByOptions = () => {
     return Object.keys(sortByOptions).map(option => {
       let sortByOptionValue = sortByOptions[option];
-      return <li key={sortByOptionValue}
-                className={this.getSortByClass(sortByOptionValue)}
-                onClick={this.handleSortByChange.bind(this, sortByOptionValue)}>
-                {option}
-              </li>;
+      return (
+        <li
+          key={sortByOptionValue}
+          className={getSortByClass(sortByOptionValue)}
+          onClick={handleSortByChange(sortByOptionValue)}
+        >
+          {option}
+        </li>
+      );
     });
-  }
+  };
 
-  render () {
-    return (
-      <div className="SearchBar">
-        {<div className="SearchBar-sort-options">
-          {/*<ul>
-          this.renderSortByOptions()
-          </ul>*/}
-        </div>}
-        <div className="SearchBar-fields">
-          <input placeholder="Start searching!" onChange={this.handleTermChange}/>
-          {/* <input placeholder="Published from" onChange={this.handleDateChange}/> */}
-        </div>
-        {/*<div className="SearchBar-submit" onClick={this.handleSearch}>
-          <a>Search</a>
-        </div>*/}
+  return (
+    <div className="SearchBar">
+      {<div className="SearchBar-sort-options"></div>}
+      <div className="SearchBar-fields">
+        <input
+          placeholder="Begin typing to search"
+          onChange={handleTermChange}
+        />
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default SearchBar;
